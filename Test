@@ -1,5 +1,4 @@
 \documentclass{article}
-
 \usepackage{graphicx}
 \usepackage{luacode}
 
@@ -7,13 +6,15 @@
 
 \begin{luacode}
 local http = require("socket.http")
-local body, code = http.request("https://upload.wikimedia.org/wikipedia/commons/3/3b/Parabola.svg")
-
-local file = io.open("image.svg", "wb")
+local body, code = http.request("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parabola.svg/400px-Parabola.svg.png")
+local file = io.open("image.png", "wb")
 file:write(body)
 file:close()
 \end{luacode}
 
-\includegraphics[width=0.7\linewidth]{image.svg}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{image.png}
+\end{figure}
 
 \end{document}
